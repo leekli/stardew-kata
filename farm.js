@@ -17,13 +17,7 @@ function cropWateringCalculatorImproved(
   numOfCrops,
   bySprinklesOrCans = false
 ) {
-  let totalRainDays = 0;
-
-  forecast.forEach((day) => {
-    if (day.weather === "rain") {
-      totalRainDays++;
-    }
-  });
+  const totalRainDays = cropWateringCalculator(forecast);
 
   const sprinklesOfWaterRequired =
     (forecast.length - totalRainDays) * numOfCrops;
